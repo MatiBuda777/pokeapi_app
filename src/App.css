@@ -6,21 +6,22 @@
 }
 
 header {
-    background-color: #282c34;
-    color: white;
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
-    right: 0;
     width: 100%;
-    padding: 20px;
+    background-color: #282c34;
+    color: white;
+    padding: 10px;
     text-align: center;
+    z-index: 1000;
 }
 
 .layout {
     display: flex;
     flex-direction: row;
     width: 100%;
+    margin-top: 40px;
 }
 
 aside {
@@ -41,24 +42,18 @@ main {
     border: 1px solid lightslategray;
 }
 
-footer {
-    background-color: #282c34;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
+p {
+    font-size: 18px;
 }
 
-footer ul {
-    list-style: none;
-    padding: 0;
-    margin: 10px 0 0;
+pre {
+    font-size: 20px;
 }
 
-footer li {
-    margin: 5px 0;
+.basic-buttons {
+    background-color: #ff0e60;
+}
+
+.gen-buttons {
+    background-color: #753efa;
 }

@@ -1,10 +1,10 @@
 export type PokemonProps = {
-    abilities: string[],
+    abilities: any[],
     height: number,
     id: number,
     name: string,
-    species: string[],
-    types: string[],
+    sprites?: { front_default?: string };
+    types: any[],
     weight: number,
     url: string,
 }
