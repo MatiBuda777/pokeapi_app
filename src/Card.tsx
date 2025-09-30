@@ -1,10 +1,15 @@
+import './Card.css'
 import './PokemonProps.tsx'
 import type {PokemonProps} from "./PokemonProps.tsx";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import * as React from "react";
 
 const Card : React.FC<PokemonProps> = ({id, name, types, abilities, height, weight, sprites, url}: PokemonProps) => {
     const [isHidden, setIsHidden] = useState<boolean>(false);
+
+    useEffect(() => {
+
+    }, [id, name, types, abilities, height, weight, sprites]);
 
     const renderList = (items: any[], extractor: (item: any) => string) => {
         return Array.isArray(items)
@@ -15,28 +20,30 @@ const Card : React.FC<PokemonProps> = ({id, name, types, abilities, height, weig
 
     return (
         <>
-            <div className="card" onClick={() => isHidden ? setIsHidden(false) : setIsHidden(true)}>
+            <div className="card" onClick={() => setIsHidden(prev => !prev)}>
                 {sprites?.front_default && (
                     <img className="card-image" src={sprites.front_default} alt={name} />
                 )}
 
-                <pre>No. {id}</pre>
+                <p>No. {id}</p>
+
                 <p>{name}</p>
+
                 <div className="card-body" style={{ display: isHidden ? "none" : "block"}}>
-                    <p>Typy: {renderList(types, t =>
+                    <p>Types: {renderList(types, t =>
                         typeof t === 'string'
                             ? t
                             : t?.type?.name || t?.name || 'unknown'
                     )}</p>
 
-                    <p>Zdolności: {renderList(abilities, a =>
+                    <p>Abilities: {renderList(abilities, a =>
                         typeof a === 'string'
                             ? a
                             : a?.ability?.name || a?.name || 'unknown'
                     )}</p>
 
-                    <p>{height} / {weight}</p>
-                    <a href={url} target="_blank" rel="noopener">{url}</a>
+                    <p>Height: {height} / Weight: {weight}</p>
+                    <a href={url} target="_blank" rel="noopener">Link doesn't work</a>
                 </div>
             </div>
         </>

@@ -1,0 +1,17 @@
+.card {
+    width: 90%;
+    border: 5px solid palegoldenrod;
+    border-radius: 5px;
+    line-height: 20px;
+    letter-spacing: 1px;
+    margin: 15px;
+    padding: 10px;
+}
+
+.card:hover {
+    background-color: #5a5a5a;
+}
+
+.card-body {
+    margin: 10px;
+}

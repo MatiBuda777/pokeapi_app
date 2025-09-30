@@ -21,8 +21,8 @@ function App() {
 
     const fetchRandomPokemon = () => {
         const randomIndex = Math.floor(Math.random() * 1000);
-        const randomLimit = Math.ceil(Math.random() * 6);
-        fetch(`${BASE}/pokemon?offset=${randomIndex}&limit=${randomLimit}`)
+        //const randomLimit = Math.ceil(Math.random() * 6);
+        fetch(`${BASE}/pokemon?offset=${randomIndex}&limit=1`)
             .then(res => res.json())
             .then(data => setPokemonData([data]))
             .catch(error => console.log(error));
@@ -102,7 +102,6 @@ function App() {
                           weight={pokemon.weight}
                           sprites={pokemon.sprites}
                           url={pokemon.url} />
-
                     ))) : null}
             </main>
         </div>
