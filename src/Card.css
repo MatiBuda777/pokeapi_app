@@ -1,0 +1,41 @@
+﻿.card {
+    font-family: 'Press Start 2P', Atari800, Arial, system-ui;
+    background: #b4f3ff;
+    border: 3px solid #dfed53;
+    border-radius: 7px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 15px;
+    cursor: pointer;
+}
+
+.card:hover {
+    box-shadow: 0 6px 16px #006fb8;
+    transform: scale(1.02);
+    border: 7px solid #52b7ff;
+}
+
+.card img {
+    width: 75%;
+    height: auto;
+}
+
+.card p {
+    margin: 4px 0;
+    color: #2d2d2d;
+    font-size: 14px;
+    text-shadow: 1px 1px #ffffff;
+}
+
+.card-body {
+    margin-top: 12px;
+    background-color: #fff3b0;
+    border-radius: 8px;
+    padding: 8px;
+    border: 2px dashed #ffcb05;
+}
+
+.hidden {
+    display: none;
+}
