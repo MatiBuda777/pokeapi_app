@@ -6,7 +6,7 @@ import * as React from "react";
 
 const Card : React.FC<PokemonProps> = ({id, name, types, abilities, height, weight, sprites, url}: PokemonProps) => {
     const [isHidden, setIsHidden] = useState<boolean>(false);
-    console.log(types);
+    console.log(abilities);
 
     const renderList = <T,>(items: T[], extractor: (item: T) => string) => {
         return Array.isArray(items) && items.length > 0
@@ -25,8 +25,8 @@ const Card : React.FC<PokemonProps> = ({id, name, types, abilities, height, weig
                 <p>{name?.toUpperCase() ?? "NO NAME"}</p>
 
                 <div className={`card-body ${isHidden ? 'hidden' : ''}`}>
-                    <p>{Array.isArray(types) && renderList(types, (t) => t.type.name || "???")}</p>
-                    <p>{Array.isArray(abilities) && renderList(abilities, (a) => a.type.name || "NO ABILITIES")}</p>
+                    <p>Types: {Array.isArray(types) && renderList(types, (t) => t?.type?.name ?? "???")}</p>
+                    <p>Abilities: {Array.isArray(abilities) && renderList(abilities, (a) => a?.ability?.name ?? "NO ABILITIES")}</p>
 
                     <p>{height} feet/{weight} lbs</p>
                 </div>

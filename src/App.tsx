@@ -1,6 +1,6 @@
 import './App.css'
 import './PokemonProps.tsx'
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import type {PokemonProps} from "./PokemonProps.tsx";
 import Card from "./Card.tsx";
 
@@ -11,13 +11,6 @@ function App() {
     const [chosenId, setChosenId] = useState<number>(1)
     const [chosenName, setChosenName] = useState<string>('')
 
-
-    const clearForm = () => {
-        setChosenId(0)
-        setChosenName('')
-
-    }
-
     const fetchChosenPokemon = () => {
         fetch(`${BASE}/pokemon/${chosenId}`)
             .then(res => res.json())
@@ -27,8 +20,8 @@ function App() {
 
     const fetchRandomPokemon = () => {
         const randomIndex = Math.floor(Math.random() * 1000);
-        //const randomLimit = Math.ceil(Math.random() * 6);
-        fetch(`${BASE}/pokemon?offset=${randomIndex}&limit=1`)
+        console.log(randomIndex)
+        fetch(`${BASE}/pokemon/${randomIndex}`)
             .then(res => res.json())
             .then(data => setPokemonData([data]))
             .catch(error => console.log(error));
@@ -61,8 +54,8 @@ function App() {
                 <h2>Pokemon list:</h2>
                 {Array.isArray(pokemonData) && pokemonData.length > 0 ? (
                     pokemonData
-                        .map((pokemon, key = 0) => (
-                    <Card key={key} id={pokemon.id}
+                        .map((pokemon) => (
+                    <Card id={pokemon.id}
                           name={pokemon.name}
                           types={pokemon.types}
                           abilities={pokemon.abilities}
